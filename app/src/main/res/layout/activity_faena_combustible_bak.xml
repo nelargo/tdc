@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="#FF02A99E">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="78dp"
+        android:id="@+id/mantent_header"
+        android:background="@drawable/fondo_general"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/imageView"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/logo_tdc"
+            android:cropToPadding="false"
+            android:scaleType="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="-5dp"
+            android:layout_marginBottom="-5dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="App Gestión Técnica En Terreno"
+            android:id="@+id/header_titulo"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/imageView"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Formulario de Actividad"
+            android:id="@+id/header_actual"
+            android:layout_marginLeft="5dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/imageView"
+            android:textColor="#ffff7644"
+            android:layout_below="@+id/header_titulo" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/manten_content"
+        android:layout_below="@+id/mantent_header"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_above="@+id/mantent_footer">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="64dp"
+            android:id="@+id/relativeLayout"
+            android:background="@drawable/fondo_general"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="false"
+            android:layout_marginTop="10dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Estación"
+                android:id="@+id/textView7"
+                android:layout_alignParentBottom="false"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:textSize="15dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentTop="false"
+                android:textAlignment="center"
+                android:layout_marginLeft="10dp" />
+
+            <ImageButton
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:id="@+id/imageButton4"
+                android:layout_alignParentBottom="false"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/boton_reprobado"
+                android:layout_centerVertical="true"
+                android:background="#ffffffff" />
+
+            <ImageButton
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:id="@+id/imageButton5"
+                android:layout_alignParentBottom="false"
+                android:layout_alignParentRight="false"
+                android:layout_alignParentEnd="false"
+                android:src="@drawable/boton_aprobado"
+                android:layout_toLeftOf="@+id/imageButton4"
+                android:layout_centerVertical="true"
+                android:background="#ffffffff" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="64dp"
+            android:id="@+id/relativeLayout2"
+            android:background="@drawable/fondo_general"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="false"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/relativeLayout">
+
+            <ImageButton
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:id="@+id/imageButton6"
+                android:layout_alignParentBottom="false"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/boton_reprobado"
+                android:layout_centerVertical="true"
+                android:background="#ffffffff" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fecha de Faena"
+                android:id="@+id/textView8"
+                android:layout_alignParentBottom="false"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:textSize="15dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentTop="false"
+                android:textAlignment="center"
+                android:layout_marginLeft="10dp" />
+
+            <ImageButton
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:id="@+id/imageButton7"
+                android:layout_alignParentBottom="false"
+                android:layout_alignParentRight="false"
+                android:layout_alignParentEnd="false"
+                android:src="@drawable/boton_aprobado"
+                android:layout_toLeftOf="@+id/imageButton6"
+                android:layout_centerVertical="true"
+                android:background="#ffffffff" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="64dp"
+            android:id="@+id/relativeLayout3"
+            android:background="@drawable/fondo_general"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="false"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/relativeLayout2">
+
+            <ImageButton
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:id="@+id/imageButton8"
+                android:layout_alignParentBottom="false"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/boton_reprobado"
+                android:layout_centerVertical="true"
+                android:background="#ffffffff" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Existencia Inicial (cm)"
+                android:id="@+id/textView9"
+                android:layout_alignParentBottom="false"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:textSize="15dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentTop="false"
+                android:textAlignment="center"
+                android:layout_marginLeft="10dp" />
+
+            <ImageButton
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:id="@+id/imageButton9"
+                android:layout_alignParentBottom="false"
+                android:layout_alignParentRight="false"
+                android:layout_alignParentEnd="false"
+                android:src="@drawable/boton_aprobado"
+                android:layout_toLeftOf="@+id/imageButton8"
+                android:layout_centerVertical="true"
+                android:background="#ffffffff" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="64dp"
+            android:id="@+id/relativeLayout4"
+            android:background="@drawable/fondo_general"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="false"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/relativeLayout3">
+
+            <ImageButton
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:id="@+id/imageButton10"
+                android:layout_alignParentBottom="false"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/boton_reprobado"
+                android:layout_centerVertical="true"
+                android:background="#ffffffff" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Existencia Final (cm)"
+                android:id="@+id/textView10"
+                android:layout_alignParentBottom="false"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:textSize="15dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentTop="false"
+                android:textAlignment="center"
+                android:layout_marginLeft="10dp" />
+
+            <ImageButton
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:id="@+id/imageButton11"
+                android:layout_alignParentBottom="false"
+                android:layout_alignParentRight="false"
+                android:layout_alignParentEnd="false"
+                android:src="@drawable/boton_aprobado"
+                android:layout_toLeftOf="@+id/imageButton10"
+                android:layout_centerVertical="true"
+                android:background="#ffffffff" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="64dp"
+        android:id="@+id/mantent_footer"
+        android:background="@drawable/fondo_general"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="10dp">
+
+        <ImageButton
+            android:layout_width="58dp"
+            android:layout_height="58dp"
+            android:id="@+id/imageButton"
+            android:layout_alignParentTop="false"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="-5dp"
+            android:layout_marginBottom="-5dp"
+            android:layout_alignParentBottom="false"
+            android:background="@drawable/custom_button_shutdown"
+            android:layout_centerVertical="true"
+            android:onClick="onClick_back"
+            android:backgroundTintMode="src_over"
+            android:src="@drawable/ic_close1" />
+
+        <ImageButton
+            android:layout_width="58dp"
+            android:layout_height="58dp"
+            android:id="@+id/btn_off"
+            android:layout_alignParentBottom="false"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_shutdown"
+            android:layout_alignParentTop="false"
+            android:scaleType="centerCrop"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:clickable="true"
+            android:background="@drawable/custom_button_shutdown"
+            android:onClick="onClick_apagar" />
+    </RelativeLayout>
+
+</RelativeLayout>

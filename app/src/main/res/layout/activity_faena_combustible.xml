@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF02A99E"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
+
+    <!-- header -->
+    <LinearLayout
+        android:id="@+id/mantent_header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/fondo_general"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/logo_tdc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginTop="5dp"
+                android:text="TDC@"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="5"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginTop="5dp"
+                android:text="App Gestión Técnica En Terreno" />
+
+            <TextView
+                android:id="@+id/header_actual"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="Formulario Faenas de Combustible"
+                android:textColor="#ffff7644" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- end header -->
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/mantent_footer"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/mantent_header"
+        android:layout_marginTop="10dp">
+
+        <LinearLayout
+            android:id="@+id/manten_content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/fondo_general"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+
+            <Spinner
+                android:id="@+id/spinner2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/spinner_bg"
+                android:entries="@array/lista_sitios" />
+
+            <Spinner
+                android:id="@+id/spinner3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/spinner_bg"
+                android:entries="@array/lista_estaciones" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:paddingLeft="16dp"
+                    android:background="@drawable/fondo_spinner1"
+                    android:layout_width="0dp"
+                    android:layout_height="34dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="4"
+                    android:layout_marginRight="5dp"
+                    android:enabled="false"
+                    android:hint="Fecha Faena" />
+
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:background="@drawable/custom_button_rounded_green"
+                    android:src="@drawable/ic_calendarwhite" />
+            </LinearLayout>
+
+            <Spinner
+                android:id="@+id/spinner4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/spinner_bg"
+                android:entries="@array/lista_tecnico" />
+
+            <EditText
+                android:paddingLeft="16dp"
+                android:background="@drawable/fondo_spinner1"
+                android:layout_marginTop="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:layout_gravity="center_vertical"
+                android:hint="Existencia Inicial" />
+
+            <EditText
+                android:paddingLeft="16dp"
+                android:background="@drawable/fondo_spinner1"
+                android:layout_marginTop="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:layout_gravity="center_vertical"
+                android:hint="Exisitencia Final" />
+
+            <EditText
+                android:paddingLeft="16dp"
+                android:background="@drawable/fondo_spinner1"
+                android:layout_marginTop="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:layout_gravity="center_vertical"
+                android:hint="Cantidad Abastecida" />
+
+            <EditText
+                android:paddingLeft="16dp"
+                android:background="@drawable/fondo_spinner1"
+                android:layout_marginTop="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:layout_gravity="center_vertical"
+                android:hint="Cantidad Solicitada" />
+
+            <EditText
+                android:paddingLeft="16dp"
+                android:background="@drawable/fondo_spinner1"
+                android:layout_marginTop="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:layout_gravity="center_vertical"
+                android:hint="Hora Inicio" />
+
+            <EditText
+                android:paddingLeft="16dp"
+                android:background="@drawable/fondo_spinner1"
+                android:layout_marginTop="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:layout_gravity="center_vertical"
+                android:hint="Hora Término" />
+
+            <Spinner
+                android:id="@+id/spinner5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/spinner_bg"
+                android:entries="@array/lista_proveedor" />
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/mantent_footer"
+        android:layout_width="fill_parent"
+        android:layout_height="64dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/fondo_general">
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="58dp"
+            android:layout_height="58dp"
+            android:layout_alignParentBottom="false"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="false"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="-5dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="-5dp"
+            android:background="@drawable/custom_button_shutdown"
+            android:backgroundTintMode="src_over"
+            android:onClick="onClick_back"
+            android:src="@drawable/ic_close1" />
+
+        <ImageButton
+            android:id="@+id/btn_off"
+            android:layout_width="58dp"
+            android:layout_height="58dp"
+            android:layout_alignParentBottom="false"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="false"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/custom_button_shutdown"
+            android:clickable="true"
+            android:onClick="onClick_apagar"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_shutdown" />
+
+        <ImageButton
+            android:id="@+id/faenacom_enviar"
+            android:layout_width="58dp"
+            android:layout_height="58dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/custom_button_rounded_green"
+            android:onClick="onClick_enviar"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_ready1white" />
+    </RelativeLayout>
+
+</RelativeLayout>
