@@ -9,6 +9,7 @@ import android.net.wifi.WifiManager;
 import android.os.IBinder;
 import android.util.Log;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class MyWifiListener extends BroadcastReceiver {
@@ -34,17 +35,23 @@ public class MyWifiListener extends BroadcastReceiver {
     }
 
     public ArrayList<String> getWifiListString(){
-        ArrayList<String> arrayList = new ArrayList<String>();
-        wifiManager.startScan();
-        for(ScanResult scanResult : wifiManager.getScanResults()){
-            arrayList.add(scanResult.SSID+";"
-                    +scanResult.BSSID+";"
-                    +scanResult.capabilities+";"
-                    +scanResult.level+";"
-                    +getChannel(scanResult.frequency));
+        try {
+            ArrayList<String> arrayList = new ArrayList<String>();
+            wifiManager.startScan();
+            for (ScanResult scanResult : wifiManager.getScanResults()) {
+                arrayList.add(scanResult.SSID + ";"
+                        + scanResult.BSSID + ";"
+                        + scanResult.capabilities + ";"
+                        + scanResult.level + ";"
+                        + getChannel(scanResult.frequency));
+            }
+            Log.d(TAG, arrayList.toString());
+            return arrayList;
+        }catch(Exception e){
+            Log.e("WIFILISTENER", e.getMessage()+": "+e.getCause());
+            ArrayList<String> vacio = new ArrayList<>();
+            return vacio;
         }
-        Log.d(TAG,arrayList.toString());
-        return arrayList;
     }
 
     @Override

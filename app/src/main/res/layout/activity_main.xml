@@ -91,46 +91,33 @@
         <LinearLayout
             android:id="@+id/row1"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_weight="1"
+            android:weightSum="2"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:id="@+id/btn_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="5dp"
                 android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
                 android:orientation="vertical">
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/btn_repair"
-                    android:layout_width="match_parent"
+                    android:scaleType="fitXY"
+                    android:layout_width="150dp"
                     android:layout_height="match_parent"
-                    android:adjustViewBounds="true"
                     android:background="@drawable/click_mantenimiento"
-                    android:clickable="true"
-                    android:onClick="onClick_btn1"
-                    android:scaleType="fitXY" />
+                    />
 
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="-22dp"
-                    android:gravity="center_horizontal"
-                    android:paddingBottom="0dp"
-                    android:text="Mantenimiento"
-                    android:textColor="#ffffff"
-                    android:textStyle="normal" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/btn_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
                 android:orientation="vertical">
@@ -161,10 +148,9 @@
         <LinearLayout
             android:id="@+id/row2"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
-            android:layout_weight="1"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -182,6 +168,7 @@
                     android:adjustViewBounds="true"
                     android:background="@drawable/click_averia"
                     android:onClick="onClick_btn3" />
+
 
                 <TextView
                     android:id="@+id/textView3"
@@ -253,7 +240,7 @@
             android:src="@drawable/ic_shutdown" />
 
         <ImageButton
-            android:id="@+id/btn_off"
+            android:id="@+id/btn_qr"
             android:layout_width="58dp"
             android:layout_height="58dp"
             android:layout_alignParentBottom="false"
@@ -265,6 +252,34 @@
             android:clickable="true"
             android:onClick="onClick_QR"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_qr" />
+            android:src="@drawable/ic_qr"
+            android:visibility="gone"/>
+
+        <ImageButton
+            android:id="@+id/btn_signature"
+            android:layout_width="58dp"
+            android:layout_height="58dp"
+            android:layout_alignParentBottom="false"
+            android:layout_toRightOf="@+id/btn_qr"
+            android:layout_alignParentTop="false"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/custom_button_shutdown"
+            android:clickable="true"
+            android:onClick="onClick_Signature"
+            android:scaleType="centerCrop"
+            android:visibility="gone"
+            android:src="@drawable/ic_signature"/>
+
+        <ImageView
+            android:id="@+id/firma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/btn_off"
+            android:layout_toRightOf="@+id/btn_signature"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="6dp"
+            android:visibility="gone"/>
     </RelativeLayout>
 </RelativeLayout>

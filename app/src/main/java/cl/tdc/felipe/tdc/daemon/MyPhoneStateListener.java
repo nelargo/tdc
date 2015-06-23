@@ -1,9 +1,11 @@
 package cl.tdc.felipe.tdc.daemon;
 
 import android.content.Context;
+import android.telephony.CellInfo;
 import android.telephony.CellLocation;
 import android.telephony.NeighboringCellInfo;
 import android.telephony.PhoneStateListener;
+import android.telephony.ServiceState;
 import android.telephony.SignalStrength;
 import android.telephony.TelephonyManager;
 import android.util.Log;
@@ -23,8 +25,10 @@ public class MyPhoneStateListener extends PhoneStateListener {
 
         telephonyManager = (TelephonyManager)mContext.getSystemService(Context.TELEPHONY_SERVICE);
         telephonyManager.listen(this,PhoneStateListener.LISTEN_SIGNAL_STRENGTHS);
+        telephonyManager.listen(this, PhoneStateListener.LISTEN_CELL_INFO);
+        telephonyManager.listen(this, PhoneStateListener.LISTEN_CELL_LOCATION);
         neighboringCellInfos = telephonyManager.getNeighboringCellInfo();
-
+        Log.d(TAG, neighboringCellInfos.toString());
     }
 
     public void debug(){
@@ -62,6 +66,20 @@ public class MyPhoneStateListener extends PhoneStateListener {
 
     public int getSignal() {
         return signal;
+    }
+
+
+
+    @Override
+    public void onCellLocationChanged(CellLocation location) {
+        super.onCellLocationChanged(location);
+        Log.d(TAG, "Location "+location.toString());
+    }
+
+    @Override
+    public void onCellInfoChanged(List<CellInfo> cellInfo) {
+        super.onCellInfoChanged(cellInfo);
+        Log.d(TAG, "cellInfo "+cellInfo.toString());
     }
 
     @Override

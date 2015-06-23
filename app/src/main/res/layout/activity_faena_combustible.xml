@@ -116,6 +116,7 @@
                 android:orientation="horizontal">
 
                 <EditText
+                    android:id="@+id/edtxt_fechafaena"
                     android:paddingLeft="16dp"
                     android:background="@drawable/fondo_spinner1"
                     android:layout_width="0dp"
@@ -132,7 +133,8 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:background="@drawable/custom_button_rounded_green"
-                    android:src="@drawable/ic_calendarwhite" />
+                    android:src="@drawable/ic_calendarwhite"
+                    android:onClick="openDateTimePicker"/>
             </LinearLayout>
 
             <Spinner

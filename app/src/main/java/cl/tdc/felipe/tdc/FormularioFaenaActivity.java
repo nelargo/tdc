@@ -1,11 +1,16 @@
 package cl.tdc.felipe.tdc;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by Felipe on 13/02/2015.
@@ -24,6 +29,33 @@ public class FormularioFaenaActivity extends Activity {
     public void init(){
 
 
+    }
+
+    public void openDateTimePicker(View v){
+        final Calendar c = Calendar.getInstance();
+        int mYear = c.get(Calendar.YEAR);
+        int mMonth = c.get(Calendar.MONTH);
+        int mDay = c.get(Calendar.DAY_OF_MONTH);
+
+        c.set(Calendar.MILLISECOND, c.MILLISECOND - 1000);
+
+        final EditText et = (EditText)findViewById(R.id.edtxt_fechafaena);
+
+
+
+        DatePickerDialog dpd = new DatePickerDialog(this,
+                new DatePickerDialog.OnDateSetListener() {
+
+                    @Override
+                    public void onDateSet(DatePicker view, int year,
+                                          int monthOfYear, int dayOfMonth) {
+                        et.setText(dayOfMonth + "-"
+                                + (monthOfYear + 1) + "-" + year);
+                    }
+                }, mYear, mMonth, mDay);
+        dpd.getDatePicker().setCalendarViewShown(true);
+        dpd.getDatePicker().setSpinnersShown(false);
+        dpd.show();
     }
 
     // TODO: funcion onClick del botón apagar.

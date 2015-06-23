@@ -10,11 +10,10 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
 
+import cl.tdc.felipe.tdc.preferences.PreferencesTDC;
+
 
 public class MyLocationListener extends Service implements LocationListener {
-
-
-
     private final Context mContext;
     public Location location;
     double longitude;
@@ -24,10 +23,10 @@ public class MyLocationListener extends Service implements LocationListener {
     boolean canGetLocation = false;
 
     // The minimum distance to change Updates in meters
-    private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 5; // 10 meters
+    private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 0; // 10 meters
 
     // The minimum time between updates in milliseconds
-    private static final long MIN_TIME_BW_UPDATES = 1000 * 30;
+    private static final long MIN_TIME_BW_UPDATES = 0;
 
     protected LocationManager locationManager;
 
@@ -37,6 +36,7 @@ public class MyLocationListener extends Service implements LocationListener {
     }
 
     public double getLatitude(){
+
         if(location != null){
             latitude = location.getLatitude();
         }
@@ -65,31 +65,31 @@ public class MyLocationListener extends Service implements LocationListener {
             } else {
                 this.canGetLocation = true;
 
-                if (isNetworkEnabled) {
+                if (isGPSEnabled) {
                     locationManager.requestLocationUpdates(
-                            LocationManager.NETWORK_PROVIDER,
+                            LocationManager.GPS_PROVIDER,
                             MIN_TIME_BW_UPDATES,
                             MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
-                    Log.d("tdc demonio", "Network Enable");
+                    Log.d("tdc demonio", "GPS Enable");
                     if (locationManager != null) {
                         location = locationManager
-                                .getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+                                .getLastKnownLocation(LocationManager.GPS_PROVIDER);
                         if (location != null) {
                             latitude = location.getLatitude();
                             longitude = location.getLongitude();
                         }
                     }
 
-                    if (isGPSEnabled) {
+                    if (isNetworkEnabled) {
                         if (location == null) {
                             locationManager.requestLocationUpdates(
-                                    LocationManager.GPS_PROVIDER,
+                                    LocationManager.NETWORK_PROVIDER,
                                     MIN_TIME_BW_UPDATES,
                                     MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
-                            Log.d("GPS Enabled", "GPS Enabled");
+                            Log.d("GPS Enabled", "NETWORK Enabled");
                             if (locationManager != null) {
                                 location = locationManager
-                                        .getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                                        .getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
                                 if (location != null) {
                                     latitude = location.getLatitude();
                                     longitude = location.getLongitude();
@@ -107,6 +107,11 @@ public class MyLocationListener extends Service implements LocationListener {
 
     @Override
     public void onLocationChanged(Location location) {
+        this.location = location;
+        longitude = location.getLongitude();
+        latitude = location.getLatitude();
+        Log.d("LocationListener", "Longitud:"+longitude);
+        Log.d("LocationListener", "Latitude:"+latitude);
     }
 
     @Override
@@ -127,5 +132,11 @@ public class MyLocationListener extends Service implements LocationListener {
     @Override
     public IBinder onBind(Intent intent) {
         return null;
+    }
+
+    public interface LocationListener{
+
+
+
     }
 }

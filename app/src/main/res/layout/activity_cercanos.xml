@@ -21,12 +21,12 @@
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_weight="2">
+            android:layout_weight="2"
+            android:gravity="center_vertical|center_horizontal">
 
             <ImageView
-                android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/logo_tdc" />
@@ -39,7 +39,8 @@
                 android:layout_marginTop="5dp"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:text="TDC@" />
+                android:text="TDC@"
+                android:visibility="gone" />
         </LinearLayout>
 
         <LinearLayout
@@ -57,7 +58,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="0dp"
                 android:layout_marginTop="5dp"
-                android:text="App Gestión Técnica En Terreno" />
+                android:text="@string/app_title" />
 
             <TextView
                 android:id="@+id/header_actual"
@@ -132,6 +133,20 @@
             android:clickable="true"
             android:background="@drawable/custom_button_shutdown"
             android:onClick="onClick_apagar" />
+
+        <ImageButton
+            android:layout_width="58dp"
+            android:layout_height="58dp"
+            android:id="@+id/btn_search"
+            android:src="@drawable/abc_ic_search_api_mtrl_alpha"
+            android:scaleType="fitCenter"
+            android:layout_toLeftOf="@+id/btn_off"
+            android:layout_toRightOf="@+id/cerca_imageButton"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:clickable="true"
+            android:background="@drawable/custom_button_rounded_green"
+            android:onClick="onClick_search" />
     </RelativeLayout>
 
 </RelativeLayout>

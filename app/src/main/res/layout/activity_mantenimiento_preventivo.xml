@@ -21,12 +21,12 @@
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_weight="2">
+            android:layout_weight="2"
+            android:gravity="center_vertical|center_horizontal">
 
             <ImageView
-                android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/logo_tdc" />
@@ -39,7 +39,8 @@
                 android:layout_marginTop="5dp"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:text="TDC@" />
+                android:text="TDC@"
+                android:visibility="gone" />
         </LinearLayout>
 
         <LinearLayout
@@ -57,156 +58,98 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="0dp"
                 android:layout_marginTop="5dp"
-                android:text="App Gestión Técnica En Terreno" />
+                android:text="@string/app_title" />
 
             <TextView
                 android:id="@+id/header_actual"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:text="Formulario Mantenimiento Preventivo"
+                android:text="Formulario de Mantenimiento"
                 android:textColor="#ffff7644" />
         </LinearLayout>
     </LinearLayout>
 
     <!-- end header -->
 
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/mantent_footer"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
+        android:background="@drawable/fondo_general"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:layout_below="@+id/mantent_header"
+        android:layout_above="@+id/mantent_footer"
         android:layout_marginTop="10dp">
 
-        <LinearLayout
-            android:id="@+id/manten_content"
-            android:layout_width="fill_parent"
+        <Button
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/fondo_general"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/custom_button_rounded_green"
+            android:text="Agregar Componente"
+            android:textColor="#ffffff"
+            android:id="@+id/boton_agregar"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="false"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:onClick="agregar" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
             android:orientation="vertical"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp">
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="6dp"
+            android:layout_above="@+id/boton_agregar">
 
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/lista_componentes"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/textview1"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true" />
 
-            <Spinner
-                android:id="@+id/spinner2"
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:background="@drawable/spinner_bg"
-                android:entries="@array/lista_sitios" />
-
-            <Spinner
-                android:id="@+id/spinner3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:background="@drawable/spinner_bg"
-                android:entries="@array/lista_estaciones" />
-
-
-
-            <Spinner
-                android:id="@+id/spinner3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:background="@drawable/spinner_bg"
-                android:entries="@array/lista_equipos" />
-
-            <Spinner
-                android:id="@+id/spinner3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:background="@drawable/spinner_bg"
-                android:entries="@array/lista_ordenes" />
-
-            <Spinner
-                android:id="@+id/spinner3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:background="@drawable/spinner_bg"
-                android:entries="@array/lista_periodos" />
-
-            <EditText
+                android:text="Componentes Utilizados"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="false"
+                android:id="@+id/textview1"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 android:paddingLeft="16dp"
-                android:background="@drawable/fondo_spinner1"
-                android:layout_marginTop="6dp"
-                android:layout_width="match_parent"
-                android:layout_height="38dp"
-                android:layout_gravity="center_vertical"
-                android:hint="Trabajo Realizado" />
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:background="@drawable/fondo_spinner1" />
 
-            <Spinner
-                android:id="@+id/spinner3"
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:background="@drawable/spinner_bg"
-                android:entries="@array/lista_responsables" />
+                android:text="No ha ingresado componentes"
+                android:layout_alignParentTop="false"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="false"
+                android:id="@+id/texto_informacion"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center_horizontal" />
+        </RelativeLayout>
 
-            <Spinner
-                android:id="@+id/spinner3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:background="@drawable/spinner_bg"
-                android:entries="@array/lista_tecnico" />
-
-            <EditText
-                android:paddingLeft="16dp"
-                android:background="@drawable/fondo_spinner1"
-                android:layout_marginTop="6dp"
-                android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_gravity="center_vertical"
-                android:hint="Nota"
-                android:lines="3"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                android:paddingTop="6dp"
-                android:paddingBottom="6dp"
-                android:orientation="vertical"
-                android:background="@drawable/fondo_general">
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Repuesto Cantidad"/>
-
-                    <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:background="@drawable/custom_button_rounded_green"
-                        android:src="@drawable/ic_add1white" />
-                </LinearLayout>
-
-                <ListView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:entries="@array/lista_repuestos"/>
-
-
-
-            </LinearLayout>
-
-
-        </LinearLayout>
-    </ScrollView>
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -226,8 +169,6 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginLeft="4dp"
-            android:layout_marginTop="-5dp"
-            android:layout_marginBottom="-5dp"
             android:layout_alignParentBottom="false"
             android:background="@drawable/custom_button_shutdown"
             android:layout_centerVertical="true"
@@ -245,7 +186,6 @@
             android:layout_alignParentTop="false"
             android:scaleType="centerCrop"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="5dp"
             android:clickable="true"
             android:background="@drawable/custom_button_shutdown"
             android:onClick="onClick_apagar" />
@@ -254,11 +194,15 @@
             android:layout_width="58dp"
             android:layout_height="58dp"
             android:id="@+id/faenacom_enviar"
-            android:layout_centerHorizontal="true"
             android:background="@drawable/custom_button_rounded_green"
             android:src="@drawable/ic_ready1white"
-            android:scaleType="fitXY"
-            android:onClick="onClick_enviar" />
+            android:scaleType="center"
+            android:onClick="onClick_enviar"
+            android:layout_toRightOf="@+id/imageButton"
+            android:layout_toLeftOf="@+id/btn_off"
+            android:layout_toStartOf="@+id/btn_off"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp" />
     </RelativeLayout>
 
 </RelativeLayout>

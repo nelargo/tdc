@@ -39,11 +39,7 @@ public class DemonioTDC extends Service {
         tresg = new MyPhoneStateListener(this);
         wifi = new MyWifiListener(this);
 
-
         ArrayList<String> l = wifi.getWifiListString();
-
-        //tresg.debug();
-
         this.mTimer = new Timer();
         this.mTimer.scheduleAtFixedRate(
                 new TimerTask() {
@@ -59,9 +55,6 @@ public class DemonioTDC extends Service {
                                 + ";"+tresg.getOperatorName()
                                 + ";"+tresg.getNetworkType()
                                 + ";"+tresg.getSignal();
-                        //Log.d(TAG,"\nTest: "+line);
-
-
 
                         try {
                             Date floorH = formatHour.parse("234459");
@@ -139,7 +132,6 @@ public class DemonioTDC extends Service {
 
 
                         File file = new File(directory, FILENAME);
-
 
                         fw = new FileWriter(file, true);
                         BufferedWriter out = new BufferedWriter(fw);
